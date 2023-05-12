@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import RouterList from './RouteList';
+
 
 function App() {
+  const [colors, setColors] = useState(['red', 'green', 'blue'])
+  const addColor = (newColor) => {
+    setColors([...colors, newColor])
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterList colors={colors} addColor = {addColor}/>
     </div>
   );
 }
